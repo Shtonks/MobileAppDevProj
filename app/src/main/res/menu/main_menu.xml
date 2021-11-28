@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/ic_baseline_map_24"
+            android:title="Maps" />
+        <item
+            android:id="@+id/nav_todo"
+            android:icon="@drawable/ic_baseline_checklist_24"
+            android:title="To do" />
+
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Profile">
+            <menu>
+                <item
+                    android:id="@+id/nav_clock"
+                    android:icon="@drawable/clock"
+                    android:title="clock" />
+                <item
+                    android:id="@+id/nav_test"
+                    android:icon="@drawable/home_icon"
+                    android:title="test" />
+                <item
+                    android:id="@+id/nav_ahhh"
+                    android:icon="@drawable/home_icon"
+                    android:title="ahhh" />
+            </menu>
+        </item>
+    </group>
+    <item android:title="Communication">
+
+        <menu>
+            <item
+                android:id="@+id/nav_mmmm"
+                android:icon="@drawable/home_icon"
+                android:title="mmm" />
+            <item
+                android:id="@+id/nav_testing"
+                android:icon="@drawable/home_icon"
+                android:title="testing" />
+
+        </menu>
+    </item>
+</menu>
