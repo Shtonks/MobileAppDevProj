@@ -1,17 +1,22 @@
-package com.example.testproject;
+package ie.ul.mobileappdevproject;
 
-import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.Window;
+
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar toolbar;
 
-// closes sidebar when back button is pressed.
+    // closes sidebar when back button is pressed.
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -31,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-//opens fragments using the sidebar and closes the sidebar
+    //opens fragments using the sidebar and closes the sidebar
     public void displayView(int viewId) {
         Fragment fragment = null;
         String title = getString(R.string.app_name);
@@ -39,22 +44,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (viewId) {
             case R.id.nav_home:
                 fragment = new BlankFragment();
-                title  = "Home";
+                title = "Home";
 
                 break;
             case R.id.nav_maps:
-                fragment = new SecondFragment();
-                title = "maps";
+                fragment = new MapsFragment();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, fragment)
+                        .commit();
+                title = "Maps";
                 break;
             case R.id.nav_todo:
                 fragment = new ThirdFragment();
                 title = "ToDo";
                 break;
-            case R.id.nav_clock:
-                fragment = new FourthFragment();
-                title = "Clock";
-                break;
-
         }
 
         if (fragment != null) {
@@ -73,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    //runs display view going to the selected fragment and closing the sidebar
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         displayView(item.getItemId());
@@ -85,16 +88,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        //forces app into portrait
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
         navigationView.bringToFront();
         //allows sidebar to toggle
-       ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
