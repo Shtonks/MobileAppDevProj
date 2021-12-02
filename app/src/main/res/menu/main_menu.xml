@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    //titles with checkable behaviors, icons and titles that can be added to in different groupings.
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
