@@ -34,8 +34,9 @@ public class ThirdFragment extends Fragment {
         Button btnAddItem = view.findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View ten) {
-                EditText etNewItem = (EditText) ten.findViewById(R.id.etNewItem);
+            public void onClick(View view) {
+                View v = (View) view.getParent();
+                EditText etNewItem = (EditText) v.findViewById(R.id.etNewItem);
                 String itemText = etNewItem.getText().toString();
                 itemsAdapter.add(itemText);
                 etNewItem.setText("");
@@ -44,10 +45,6 @@ public class ThirdFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
@@ -71,4 +68,11 @@ public class ThirdFragment extends Fragment {
             }
         });
     }
+
+//    public void onAddItem(View v) {
+//        EditText etNewItem = (EditText) v.findViewById(R.id.etNewItem);
+//        String itemText = etNewItem.getText().toString();
+//        itemsAdapter.add(itemText);
+//        etNewItem.setText("");
+//    }
 }
