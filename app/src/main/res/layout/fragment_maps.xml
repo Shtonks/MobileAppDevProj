@@ -22,6 +22,7 @@
         android:id="@+id/UL_btn"
         android:layout_width="67dp"
         android:layout_height="67dp"
+        android:backgroundTint="#85307A"
         android:text="UL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +35,7 @@
         android:id="@+id/radioGroup2"
         android:layout_width="124dp"
         android:layout_height="147dp"
-        android:background="@color/white"
+        android:background="#96D2EC"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintStart_toStartOf="@+id/map">
 
@@ -63,6 +64,7 @@
         android:id="@+id/myLocBtn"
         android:layout_width="116dp"
         android:layout_height="70dp"
+        android:backgroundTint="#F16C06"
         android:text="My Location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
