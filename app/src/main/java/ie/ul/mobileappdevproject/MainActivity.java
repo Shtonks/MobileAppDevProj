@@ -110,13 +110,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         auth= FirebaseAuth.getInstance();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        FirebaseUser user = auth.getCurrentUser();
-        if (user == null){
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
-    }
 }
