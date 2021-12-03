@@ -58,7 +58,6 @@ public class BlankFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
 
@@ -72,10 +71,11 @@ public class BlankFragment extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                auth.signOut();
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), LoginActivity.class);
                 getActivity().startActivity(intent);
+
+                auth.signOut();
             }
         });
         return view;

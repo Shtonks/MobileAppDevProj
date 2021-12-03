@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(R.id.nav_home);
         //displays home on start up
         displayView(R.id.nav_home);
-
         auth= FirebaseAuth.getInstance();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
         FirebaseUser user = auth.getCurrentUser();
         if (user == null){
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
