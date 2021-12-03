@@ -1,8 +1,8 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#96D2EC"
     tools:context=".ThirdFragment">
 
     <ListView
@@ -16,16 +16,16 @@
         android:layout_marginTop="55dp" />
 
     <EditText
+        android:id="@+id/etNewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etNewItem"
         android:layout_alignTop="@+id/btnAddItem"
-        android:hint="Enter a new item"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/btnAddItem"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/btnAddItem"
-        android:layout_alignParentBottom="true" />
+        android:layout_toLeftOf="@+id/btnAddItem"
+        android:hint="Enter a new item" />
 
     <Button
         android:id="@+id/btnAddItem"
@@ -34,6 +34,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:backgroundTint="#C6AC08"
         android:onClick="onAddItem"
         android:text="Add Item" />
 
