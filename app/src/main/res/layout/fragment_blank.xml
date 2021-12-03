@@ -21,4 +21,12 @@
         android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="125dp"
+        android:layout_height="60dp"
+        android:text="Log out"
+        tools:layout_editor_absoluteX="260dp"
+        tools:layout_editor_absoluteY="740dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

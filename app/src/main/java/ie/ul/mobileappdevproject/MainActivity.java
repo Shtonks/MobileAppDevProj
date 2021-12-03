@@ -19,6 +19,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    FirebaseAuth auth;
 
     // closes sidebar when back button is pressed.
     @Override
@@ -105,5 +108,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //displays home on start up
         displayView(R.id.nav_home);
 
+        auth= FirebaseAuth.getInstance();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = auth.getCurrentUser();
+        if (user == null){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
     }
 }
